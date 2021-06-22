@@ -1,0 +1,24 @@
+{
+    "name": "kasparetter",
+    "version": "1.0.0",
+    "private": true,
+    "description": "The personal website of Kaspar Etter.",
+    "homepage": "https://kasparetter.com",
+    "bugs": {
+        "url": "https://github.com/KasparEtter/personal-website/issues"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/KasparEtter/personal-website.git"
+    },
+    "author": "Kaspar Etter",
+    "scripts": {
+        "favicons": "sharp --input pictures/2021-06-12.large.jpg --output favicons/temporary.png composite favicons/circle.svg --blend dest-in && sharp --input favicons/temporary.png --output favicons/favicon-32x32.png resize 32 && sharp --input favicons/temporary.png --output favicons/favicon-128x128.png resize 128 && sharp --input favicons/temporary.png --output favicons/favicon-192x192.png resize 192 && sharp --input favicons/temporary.png --output favicons/favicon-256x256.png resize 256 && rm favicons/temporary.png",
+        "pgp": "rm pgp.txt && gpg --export --output pgp.txt --armor --export-options export-minimal 0x49270766F279B416",
+        "start": "browser-sync start --server --watch --no-notify --no-ghost-mode --no-ui"
+    },
+    "devDependencies": {
+        "browser-sync": "2.26.14",
+        "sharp-cli": "1.15.0"
+    }
+}

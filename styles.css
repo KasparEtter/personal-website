@@ -1,0 +1,75 @@
+:root {
+  --p: calc(min(50vw, 50vh));
+  --l: calc(var(--p) / 4);
+}
+
+#portrait {
+  position: fixed;
+  top: 50vh;
+  left: 50vw;
+  width: var(--p);
+  margin-top: calc(var(--p) / -2);
+  margin-left: calc(var(--p) / -2);
+  border-radius: 50%;
+}
+
+#links {
+  position: fixed;
+  top: 50vh;
+  left: 50vw;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  --r: calc(var(--p) / 2 + var(--l));
+}
+
+#links li {
+  position: absolute;
+  --a: calc((var(--i) / var(--n) - 0.25) * 1turn);
+  transform: 
+    rotate(var(--a)) 
+    translate(var(--r))
+    rotate(calc(-1 * var(--a)))
+  ;
+}
+
+a {
+  display: block;
+  width: var(--l);
+  height: var(--l);
+  margin-top: calc(var(--l) / -2);
+  margin-left: calc(var(--l) / -2);
+  font-size: calc(var(--l) / 2);
+  line-height: calc(var(--l) * 1.06);
+  border-radius: 50%;
+  color: white;
+  background-color: #1B1B1B;
+  text-decoration: none;
+  text-align: center;
+}
+
+a:hover, a:focus {
+  background-color: #003366;
+  outline: none;
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: #1B1B1B;
+  }
+
+  a {
+    color: #1B1B1B;
+    background-color: #AAAAAA;
+  }
+
+  a:hover, a:focus {
+    background-color: #9F4A4E;
+  }
+}
+
+@supports (-moz-appearance:none) {
+  a {
+    line-height: calc(var(--l) * 1.1);
+  }
+}
